@@ -12,10 +12,10 @@ class SongContainer extends React.Component {
   render(){
     return (
       <div>
-        <h2>Song Container</h2>
-        <SongList songs={ this.state.songs }/>
+      <h2>iTunes Chart</h2>
+      <SongList songs={ this.state.songs }/>
       </div>
-    );
+      );
   }
 
   componentDidMount(){
@@ -28,7 +28,6 @@ class SongContainer extends React.Component {
 
       const jsonString = request.responseText;
       const data = JSON.parse(jsonString);
-      // console.log(data.feed.entry[0]['im:name'].label)
       this.setState({
         songs: data.feed.entry,
       });

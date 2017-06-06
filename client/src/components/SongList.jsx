@@ -10,12 +10,22 @@ class SongList extends React.Component {
   }
 
   render() {
+
     const songsFromApi = this.props.songs.map((song, index) => {
-      return <li value={ (index + 1) } key={ index }> { song['im:name'].label } </li>
+      console.log(song)
+
+      return (
+        <li value={ (index + 1) } key={ index }> { song['im:name'].label }
+        <br/>
+        { song['im:artist'].label }
+        <br/>
+        <img src={ song['im:image'][0].label }/>
+        </li>
+        )
     })
 
     return (
-      <ol>
+      <ol id='song-list'>
       { songsFromApi }
       </ol>
       );
