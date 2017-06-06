@@ -12,8 +12,6 @@ class SongList extends React.Component {
   render() {
 
     const songsFromApi = this.props.songs.map((song, index) => {
-      console.log(song.link[1].attributes.href)
-
       return (
         <li value={ (index + 1) } key={ index }> { song['im:name'].label }
         <br/>
