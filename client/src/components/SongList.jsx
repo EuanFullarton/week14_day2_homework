@@ -7,28 +7,18 @@ class SongList extends React.Component {
     this.state = {
       selectedIndex: ''
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
   render() {
     const songsFromApi = this.props.songs.map((song, index) => {
-      console.log(song)
-      return <option value={ index } key={ index }> { song['im:name'].label } </option>
+      return <li value={ (index + 1) } key={ index }> { song['im:name'].label } </li>
     })
 
     return (
-      <select id="songs" onChange={ this.handleChange } value={ this.state.selectedIndex }>
+      <ol>
       { songsFromApi }
-      </select>
+      </ol>
       );
-  }
-
-  handleChange(event) {
-    const index = event.target.value;
-    this.setState({ selectedIndex: index });
-
-    const song = this.props.songs[index];
-    this.props.onSelectSong(song);
   }
 }
 
